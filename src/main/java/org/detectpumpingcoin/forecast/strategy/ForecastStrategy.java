@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface ForecastStrategy {
 	//	frameTimeForecasting in second
-	public int frameTimeForecasting = 5;
+	public int frameTimeForecasting = 60;
 	
 	public int increasementRate = 3;
 	
