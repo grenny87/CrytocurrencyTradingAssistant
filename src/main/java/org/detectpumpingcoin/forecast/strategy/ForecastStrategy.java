@@ -2,7 +2,7 @@ package org.detectpumpingcoin.forecast.strategy;
 
 import java.util.List;
 
-public interface ForecastStategy {
+public interface ForecastStrategy {
 	//	frameTimeForecasting in second
 	public int frameTimeForecasting = 5;
 	

@@ -2,13 +2,13 @@ package org.detectpumpingcoin.forecast.context;
 
 import java.util.List;
 
-import org.detectpumpingcoin.forecast.strategy.ForecastStategy;
+import org.detectpumpingcoin.forecast.strategy.ForecastStrategy;
 
 public class MarketContext {
 	
-	private ForecastStategy strategy;
+	private ForecastStrategy strategy;
 	
-	public MarketContext(ForecastStategy strategy) {
+	public MarketContext(ForecastStrategy strategy) {
 		this.strategy = strategy;
 	}
 	
