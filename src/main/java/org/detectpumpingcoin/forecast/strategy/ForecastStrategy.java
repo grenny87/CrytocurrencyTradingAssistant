@@ -3,10 +3,10 @@ package org.detectpumpingcoin.forecast.strategy;
 import java.util.List;
 
 public interface ForecastStrategy {
-	//	frameTimeForecasting in second
-	public int frameTimeForecasting = 5;
+	//	FrameTime Forecasting in second
+	public int getFrametimeForecasting();
 	
-	public int increasementRate = 3;
+	public double getIncreasementRate();
 	
 	public List<String> doOperation() ;
 }
