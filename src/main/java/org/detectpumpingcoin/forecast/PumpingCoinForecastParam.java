@@ -1,16 +1,31 @@
 package org.detectpumpingcoin.forecast;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 import org.detectpumpingcoin.entity.MarketHistory;
 import org.detectpumpingcoin.entity.MarketSummary;
 
 public class PumpingCoinForecastParam {
 	
-	private Map<String, MarketSummary> marketSummariesMap = new HashMap<String, MarketSummary>();
+	private List<MarketSummary> marketSummaries;
 	
-	private Map<String, MarketHistory> marketHisotry;
+	private List<MarketHistory> marketHistory;
+
+	public List<MarketHistory> getMarketHistory() {
+		return marketHistory;
+	}
+
+	public void setMarketHistory(List<MarketHistory> marketHistory) {
+		this.marketHistory = marketHistory;
+	}
+
+	public List<MarketSummary> getMarketSummaries() {
+		return marketSummaries;
+	}
+
+	public void setMarketSummaries(List<MarketSummary> marketSummaries) {
+		this.marketSummaries = marketSummaries;
+	}
 	
 	
 	
