@@ -30,11 +30,8 @@ public class DetectPumpingCoin {
 				MarketContext context = new MarketContext(strategy);
 				System.out.println(i + "forecast "+ context.doForecasting());
 				Thread.sleep(strategy.getFrametimeForecasting());
-			} catch (URISyntaxException e) {
+			} catch (URISyntaxException | InterruptedException e) {
 				logger.error("Cannot getMarketSummaries", e);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			}
 			i++;
 		}

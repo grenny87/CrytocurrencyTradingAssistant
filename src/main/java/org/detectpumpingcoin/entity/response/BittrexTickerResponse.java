@@ -1,8 +1,10 @@
 
-package org.detectpumpingcoin.entity;
+package org.detectpumpingcoin.entity.response;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import org.detectpumpingcoin.entity.Ticker;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -17,21 +19,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "message",
     "result"
 })
-public class BittrexMarketSummaryReponse {
+public class BittrexTickerResponse {
 
-    @Override
-	public String toString() {
-		return "BittrexMarketSummariesReponse [success=" + success + ", message=" + message + ", result=" + result
-				+ ", additionalProperties=" + additionalProperties + "]";
-	}
-
-	@JsonProperty("success")
+    @JsonProperty("success")
     private boolean success;
     @JsonProperty("message")
     private String message;
-    
     @JsonProperty("result")
-    private MarketSummary result = null;
+    private Ticker result;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -56,12 +51,12 @@ public class BittrexMarketSummaryReponse {
     }
 
     @JsonProperty("result")
-    public MarketSummary getResult() {
+    public Ticker getResult() {
         return result;
     }
 
     @JsonProperty("result")
-    public void setResult(MarketSummary result) {
+    public void setResult(Ticker result) {
         this.result = result;
     }
 

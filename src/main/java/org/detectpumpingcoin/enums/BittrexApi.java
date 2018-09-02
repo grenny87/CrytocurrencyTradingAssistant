@@ -6,6 +6,7 @@ public enum BittrexApi {
 	GET_MARKET_SUMMARIES("/public/getmarketsummaries"),
 	GET_MARKET_SUMMARY("/public/getmarketsummary"),
 	GET_ORDER_BOOK("/public/getorderbook"),
+	GET_TICKER("/public/getticker"),
 	GET_MARKET_HISTORY("/public/getmarkethistory"),
 	GET_ORDER("/account/getorder");
 	

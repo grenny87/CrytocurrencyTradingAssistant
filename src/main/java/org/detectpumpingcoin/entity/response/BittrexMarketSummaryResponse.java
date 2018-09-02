@@ -1,9 +1,11 @@
 
-package org.detectpumpingcoin.entity;
+package org.detectpumpingcoin.entity.response;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+
+import org.detectpumpingcoin.entity.MarketSummary;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -17,14 +19,21 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "message",
     "result"
 })
-public class BittrexMarketHistotryReponse {
+public class BittrexMarketSummaryResponse {
 
-    @JsonProperty("success")
+    @Override
+	public String toString() {
+		return "BittrexMarketSummariesReponse [success=" + success + ", message=" + message + ", result=" + result
+				+ ", additionalProperties=" + additionalProperties + "]";
+	}
+
+	@JsonProperty("success")
     private boolean success;
     @JsonProperty("message")
     private String message;
+    
     @JsonProperty("result")
-    private List<MarketHistory> result = null;
+    private MarketSummary result = null;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -49,12 +58,12 @@ public class BittrexMarketHistotryReponse {
     }
 
     @JsonProperty("result")
-    public List<MarketHistory> getResult() {
+    public MarketSummary getResult() {
         return result;
     }
 
     @JsonProperty("result")
-    public void setResult(List<MarketHistory> result) {
+    public void setResult(MarketSummary result) {
         this.result = result;
     }
 

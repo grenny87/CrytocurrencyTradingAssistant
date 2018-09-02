@@ -14,20 +14,26 @@ public class BittrexRequestGenerator {
 	private static final String AND_MARK="&";
 	private static final String MARKET_PARAM = "market";
 	private static final String ORDER_TYPE_PARAM = "type";
-	private static BittrexRequestGenerator instance;
+//	private static BittrexRequestGenerator instance;
 	private String host;
 	private String scheme;
+	private URIBuilder builder;
 	
 	private BittrexRequestGenerator() {
-		
+		host = ApiConfiguration.BITTREX_HOST;
+		scheme = "https";
+		builder = new URIBuilder();
+		builder.setHost(host);
+		builder.setScheme(scheme);
 	}
 	
 	public static BittrexRequestGenerator getInstance() {
-		if (null == instance) {
-			instance = new BittrexRequestGenerator();
-		}
-		instance.setHost(ApiConfiguration.BITTREX_HOST).setScheme("https");
-		return instance;
+//		if (null == instance) {
+//			instance = new BittrexRequestGenerator();
+//		}
+//		
+//		return instance;
+		return new BittrexRequestGenerator();
 	}
 	
 	
@@ -42,41 +48,47 @@ public class BittrexRequestGenerator {
 	}
 	
 	public String getMarketSummariesRequest() throws URISyntaxException {
-		URIBuilder builder = new URIBuilder();
-		builder.setScheme(scheme);
-		builder.setHost(host);
+//		URIBuilder builder = new URIBuilder();
+//		builder.setScheme(scheme);
+//		builder.setHost(host);
 		builder.setPath(ApiConfiguration.API_PATH + BittrexApi.GET_MARKET_SUMMARIES.getUrl());
 		return builder.build().toString();
 	}
 	
 	public String getMarketSummaryRequest(String market) throws URISyntaxException {
-		URIBuilder builder = new URIBuilder();
-		builder.setScheme(scheme);
-		builder.setHost(host);
+//		URIBuilder builder = new URIBuilder();
+//		builder.setScheme(scheme);
+//		builder.setHost(host);
 		builder.setPath(ApiConfiguration.API_PATH + BittrexApi.GET_MARKET_SUMMARY.getUrl());
 		builder.addParameter(MARKET_PARAM, market);
 		return builder.build().toString();
 	}
 	
 	public String getMarketHistoryRequest(String market) throws URISyntaxException {
-		URIBuilder builder = new URIBuilder();
-		builder.setScheme(scheme);
-		builder.setHost(host);
+//		URIBuilder builder = new URIBuilder();
+//		builder.setScheme(scheme);
+//		builder.setHost(host);
 		builder.setPath(ApiConfiguration.API_PATH + BittrexApi.GET_MARKET_HISTORY.getUrl());
 		builder.addParameter(MARKET_PARAM, market);
 		return builder.build().toString();
 	}
 	
 	public String getOrderBook(String market, BittrexOrderType type) throws URISyntaxException {
-		URIBuilder builder = new URIBuilder();
-		builder.setScheme(scheme);
-		builder.setHost(host);
+//		URIBuilder builder = new URIBuilder();
+//		builder.setScheme(scheme);
+//		builder.setHost(host);
 		builder.setPath(ApiConfiguration.API_PATH + BittrexApi.GET_ORDER_BOOK.getUrl());
 		builder.addParameter(MARKET_PARAM, market);
 		builder.addParameter(ORDER_TYPE_PARAM, type.getType());
 		return builder.build().toString();
 //		return ApiConfiguration.ROOT_PATH + BittrexApi.GET_ORDER_BOOK.getUrl() + QUESTION_MARK + MARKET_PARAM
 //				+ EQUAL_MARK + market;
+	}
+	
+	public String getTicker(String market) throws URISyntaxException {
+		builder.setPath(ApiConfiguration.API_PATH + BittrexApi.GET_TICKER.getUrl());
+		builder.addParameter(MARKET_PARAM, market);
+		return builder.build().toString();
 	}
 	
 }

@@ -1,9 +1,12 @@
 
-package org.detectpumpingcoin.entity;
+package org.detectpumpingcoin.entity.response;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.detectpumpingcoin.entity.MarketSummary;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -17,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "message",
     "result"
 })
-public class BittrexMarketSummariesReponse {
+public class BittrexMarketSummariesResponse {
 
     @Override
 	public String toString() {
